@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaultbet — Play with Tokens</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- AUTH MODAL -->
+<div id="auth-modal" class="modal-overlay active">
+  <div class="modal-box">
+    <div class="modal-logo">Vaultbet</div>
+    <p class="modal-sub">Sign in with GitHub to get 1,000 free tokens and start playing.</p>
+    <button id="github-login-btn" class="btn-github">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      Continue with GitHub
+    </button>
+    <p class="modal-fine">This is a demo site. No real money involved. Tokens have no value.</p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo">Vaultbet</span>
+    </div>
+    <div class="sidebar-balance">
+      <span class="balance-label">Balance</span>
+      <span class="balance-amount" id="balance-display">1,000</span>
+      <span class="balance-unit">TKN</span>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-section-label">Games</div>
+      <a class="nav-item active" data-game="lobby" href="#">Lobby</a>
+      <a class="nav-item" data-game="mines" href="#">Mines</a>
+      <a class="nav-item" data-game="chicken" href="#">Chicken Road</a>
+      <a class="nav-item" data-game="blackjack" href="#">Blackjack</a>
+      <a class="nav-item" data-game="plinko" href="#">Plinko</a>
+      <a class="nav-item" data-game="keno" href="#">Keno</a>
+      <a class="nav-item" data-game="crash" href="#">Crash</a>
+      <a class="nav-item" data-game="poker" href="#">Video Poker</a>
+      <a class="nav-item" data-game="roulette" href="#">Roulette</a>
+      <a class="nav-item" data-game="dice" href="#">Dice</a>
+    </div>
+    <div class="sidebar-user" id="sidebar-user">
+      <div class="user-avatar" id="user-avatar">G</div>
+      <div class="user-info">
+        <span class="user-name" id="user-name">Player</span>
+        <span class="user-tag">Token Account</span>
+      </div>
+      <button class="logout-btn" id="logout-btn">Out</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <div id="game-container">
+      <!-- Games rendered here by JS -->
+    </div>
+  </main>
+
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/games/mines.js"></script>
+<script src="js/games/chicken.js"></script>
+<script src="js/games/blackjack.js"></script>
+<script src="js/games/plinko.js"></script>
+<script src="js/games/keno.js"></script>
+<script src="js/games/crash.js"></script>
+<script src="js/games/poker.js"></script>
+<script src="js/games/roulette.js"></script>
+<script src="js/games/dice.js"></script>
+</body>
+</html>
