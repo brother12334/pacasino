@@ -47,8 +47,9 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
 .modal-fine { color: var(--text-dimmer); font-size: 12px; margin-top: 22px; }
 
 /* LAYOUT */
-#app { display: flex; height: 100vh; }
+#app { display: flex; height: 100vh; height: 100dvh; }
 #app.hidden { display: none; }
+button, input, select { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 /* SIDEBAR */
 #sidebar { width: var(--sidebar-w); background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; transition: width 0.25s var(--ease-smooth); }
@@ -87,7 +88,7 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
 /* BET CONTROLS */
 .bet-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
 .bet-row label { font-size: 14px; color: var(--text-dim); white-space: nowrap; }
-.bet-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 12px 14px; border-radius: var(--radius); font-size: clamp(15px, 0.5vw + 13px, 17px); width: 130px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+.bet-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 12px 14px; border-radius: var(--radius); font-size: max(16px, clamp(15px, 0.5vw + 13px, 17px)); width: 130px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; touch-action: manipulation; }
 .bet-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(200,169,110,0.16); transform: translateY(-1px); }
 .quick-bets { display: flex; gap: 7px; flex-wrap: wrap; }
 .quick-bet-btn { background: var(--surface3); border: 1px solid var(--border); color: var(--text-dim); padding: 9px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: all 0.2s var(--ease-bounce); }
@@ -134,6 +135,11 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
 .game-card-name { font-size: clamp(16px, 0.6vw + 14px, 19px); font-weight: 700; margin-bottom: 5px; transition: color 0.2s; }
 .game-card:hover .game-card-name { color: var(--accent); }
 .game-card-desc { font-size: 13px; color: var(--text-dim); line-height: 1.45; }
+
+.mine-cell, .keno-ball, .rb-cell, .rb-outside, .game-card, .nav-item, .quick-bet-btn, .dice-ou-btn, .card, .poker-card, .plinko-bucket {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
 /* MINES */
 .mines-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(7px, 1vw, 10px); max-width: 420px; width: 100%; }
@@ -222,8 +228,8 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
 .rb-cell.red-num { color: #f87171; }
 .rb-cell.black-num { color: var(--text); }
 .rb-cell.green-num { color: var(--green); }
-.roulette-outside { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 9px; max-width: 300px; width: 100%; }
-.rb-outside { flex: 1; min-width: 64px; background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 12px 8px; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s var(--ease-bounce); user-select: none; }
+.roulette-outside { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 9px; max-width: 300px; width: 100%; }
+.rb-outside { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 12px 6px; text-align: center; font-size: clamp(11px, 0.5vw + 10px, 13px); font-weight: 700; cursor: pointer; transition: all 0.2s var(--ease-bounce); user-select: none; }
 .rb-outside:hover { border-color: var(--accent); transform: scale(1.07) translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.3); }
 .rb-outside.selected { border-color: var(--accent); background: rgba(200,169,110,0.18); color: var(--accent); box-shadow: var(--glow-accent); }
 .roulette-result-num { font-size: clamp(54px, 11vw, 90px); font-weight: 800; text-align: center; line-height: 1; margin: 14px 0 5px; letter-spacing: -2px; animation: resultPop 0.45s var(--ease-bounce); }
@@ -363,8 +369,8 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
 }
 
 @media (max-width: 600px) {
-  #app { flex-direction: column; height: auto; min-height: 100vh; }
-  #sidebar { width: 100%; flex-direction: row; overflow-x: auto; overflow-y: visible; border-right: none; border-bottom: 1px solid var(--border); }
+  #app { flex-direction: column; height: auto; min-height: 100vh; min-height: 100dvh; }
+  #sidebar { width: 100%; flex-direction: row; overflow-x: auto; overflow-y: visible; border-right: none; border-bottom: 1px solid var(--border); -webkit-overflow-scrolling: touch; padding-top: env(safe-area-inset-top); }
   .sidebar-header, .sidebar-balance { flex-shrink: 0; }
   .sidebar-nav { display: flex; padding: 8px; flex: 0; }
   .nav-item { white-space: nowrap; }
@@ -374,11 +380,11 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helv
   .mines-grid, .keno-grid { max-width: 100%; }
   .bet-row { gap: 8px; }
   .btn-primary, .btn-danger, .btn-green, .btn-secondary { width: 100%; }
-  .roulette-board, .roulette-outside { max-width: 100%; }
+  .roulette-wrap { justify-content: center; }
+  .roulette-wheel-area { display: flex; justify-content: center; }
+  .roulette-board, .roulette-outside { max-width: 100%; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 420px) {
-  .keno-grid { grid-template-columns: repeat(6, 1fr); }
-  .mines-grid { grid-template-columns: repeat(4, 1fr); }
   .die { width: 56px; height: 56px; }
 }
