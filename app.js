@@ -81,17 +81,17 @@ function navigate(game) {
   void gc.offsetWidth;
   gc.className = 'fade-in';
 
-  const renderers = {
+ const renderers = {
     lobby: renderLobby,
-    mines: renderMines,
-    chicken: renderChicken,
-    blackjack: renderBlackjack,
-    plinko: renderPlinko,
-    keno: renderKeno,
-    crash: renderCrash,
-    poker: renderPoker,
-    roulette: renderRoulette,
-    dice: renderDice,
+    mines: typeof renderMines !== 'undefined' ? renderMines : null,
+    chicken: typeof renderChicken !== 'undefined' ? renderChicken : null,
+    blackjack: typeof renderBlackjack !== 'undefined' ? renderBlackjack : null,
+    plinko: typeof renderPlinko !== 'undefined' ? renderPlinko : null,
+    keno: typeof renderKeno !== 'undefined' ? renderKeno : null,
+    crash: typeof renderCrash !== 'undefined' ? renderCrash : null,
+    poker: typeof renderPoker !== 'undefined' ? renderPoker : null,
+    roulette: typeof renderRoulette !== 'undefined' ? renderRoulette : null,
+    dice: typeof renderDice !== 'undefined' ? renderDice : null,
   };
   if (renderers[game]) renderers[game](gc);
 }
